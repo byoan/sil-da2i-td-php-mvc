@@ -1,0 +1,79 @@
+* {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+body {
+    margin: 1rem;
+}
+header {
+    display: flex;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+}
+h1 {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+span.h2 {
+    margin: 0.5rem 0.5rem 0 1rem;
+}
+h2 {
+    margin: 1rem;
+}
+h3 {
+    font-size: 3rem;
+    font-weight: 300;
+    margin: 1rem;
+}
+h4 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin: 1rem;
+}
+p {
+    margin: 2rem;
+}
+input {
+    border: 1px solid #ced4da;
+}
+meter {
+    margin-bottom: 1rem;
+}
+.img-dimensions {
+    height: 300px;
+    width: 200px;
+}
+.movieName,
+.movieRating {
+    display: flex;
+    justify-content: center;
+}
+.movieRating {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+footer {
+    margin: 2rem;
+    display: flex;
+}
+.birthDate {
+    line-height: 1.2;
+    font-size: 1.5rem;
+}
+.imgDirector {
+    display: flex;
+    justify-content: center;
+}
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+figcaption {
+    color: #3e3e3e;
+    font-style: italic;
+}
