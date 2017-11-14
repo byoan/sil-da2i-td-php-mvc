@@ -7,7 +7,7 @@
 #
 # Hôte: 127.0.0.1 (MySQL 5.6.35)
 # Base de données: moviesWebsite
-# Temps de génération: 2017-11-13 07:31:19 +0000
+# Temps de génération: 2017-11-14 09:50:05 +0000
 # ************************************************************
 
 
@@ -187,19 +187,19 @@ LOCK TABLES `photo` WRITE;
 
 INSERT INTO `photo` (`id`, `chemin`, `legende`)
 VALUES
-	(1,'img/person/damien-chazelle.jpg','Damien Chazelle'),
-	(2,'img/person/miles-teller.jpg','Miles Teller'),
-	(3,'img/person/melissa-benoist.jpg','Melissa Benoist'),
-	(4,'img/person/paul-reiser.jpg','Paul Reiser'),
-	(5,'img/film/whiplash/afficheWhiplash.jpg','Affiche du film'),
-	(6,'img/film/whiplash/acteurPrincipal.jpg','Scène du film'),
-	(7,'img/person/jk-simmons.jpg','JK Simmons'),
-	(8,'img/person/amy-adams.jpg','Amy Adams'),
-	(9,'img/person/jeremy-renner.jpg','Jeremy Renner'),
-	(10,'img/person/forest-whitaker.jpg','Forest Whitaker'),
-	(11,'img/film/arrival/afficheArrival.jpg','Affiche du film'),
-	(12,'img/person/denis-villeneuve.jpg','Denis Villeneuve'),
-	(13,'img/film/arrival/sceneArrival.jpg','Scène du film');
+	(1,'ressources/img/person/damien-chazelle.jpg','Damien Chazelle'),
+	(2,'ressources/img/person/miles-teller.jpg','Miles Teller'),
+	(3,'ressources/img/person/melissa-benoist.jpg','Melissa Benoist'),
+	(4,'ressources/img/person/paul-reiser.jpg','Paul Reiser'),
+	(5,'ressources/img/film/whiplash/afficheWhiplash.jpg','Affiche du film'),
+	(6,'ressources/img/film/whiplash/acteurPrincipal.jpg','Scène du film'),
+	(7,'ressources/img/person/jk-simmons.jpg','JK Simmons'),
+	(8,'ressources/img/person/amy-adams.jpg','Amy Adams'),
+	(9,'ressources/img/person/jeremy-renner.jpg','Jeremy Renner'),
+	(10,'ressources/img/person/forest-whitaker.jpg','Forest Whitaker'),
+	(11,'ressources/img/film/arrival/afficheArrival.jpg','Affiche du film'),
+	(12,'ressources/img/person/denis-villeneuve.jpg','Denis Villeneuve'),
+	(13,'ressources/img/film/arrival/sceneArrival.jpg','Scène du film');
 
 /*!40000 ALTER TABLE `photo` ENABLE KEYS */;
 UNLOCK TABLES;
