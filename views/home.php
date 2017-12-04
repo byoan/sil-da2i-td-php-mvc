@@ -1,4 +1,5 @@
-<?php Controller::loadTemplate('head'); ?>
+<?php
+Controller::loadTemplate('head'); ?>
     <body>
         <main>
             <?php Controller::loadTemplate('header'); ?>

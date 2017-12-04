@@ -29,6 +29,10 @@ switch ($request['path']) {
     case 'admin/':
         return AdminController::displayAdminHome();
 
+    case 'faq':
+    case 'faq/':
+        return FaqController::displayFaq();
+
     case (preg_match('/\/admin\/[a-z]+\/[a-z]+\/*/', '/' . $request['path']) ? true : false):
         return (new AdminController())->handleAdminAction($explodedRequest);
 
