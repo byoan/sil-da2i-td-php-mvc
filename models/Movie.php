@@ -162,7 +162,7 @@ class Movie {
      */
     public function delete()
     {
-        $request = $this->db->prepare("DELETE * FROM film WHERE id = :id");
+        $request = $this->db->prepare("DELETE FROM film WHERE id = :id");
 
         return $request->execute([
             ':id' => $this->id,

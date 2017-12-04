@@ -114,7 +114,7 @@ class AdminController extends Controller {
         switch ($explodedRequest['2']) {
             case 'movie':
                 // If this value is not empty, we are in a form submit request
-                if (!empty($_POST['id'])) {
+                if (!empty($_POST['idMovie'])) {
                     if ($this->deleteMovie((int)$explodedRequest['3'])) {
                         return header('Location: ../../');
                     } else {
@@ -179,11 +179,11 @@ class AdminController extends Controller {
      *
      * @return void
      */
-    private function deleteMovie()
+    private function deleteMovie($idMovie)
     {
         $db = Db::getInstance();
 
-        $movie = new Movie((int)$_POST['idMovie']);
+        $movie = new Movie((int)$idMovie);
 
         return $movie->delete();
     }
