@@ -2,6 +2,9 @@
 
 class DirectorController {
 
+    /**
+     * Displays the director page information
+     */
     public static function display(int $id)
     {
         $director = new Director($id);

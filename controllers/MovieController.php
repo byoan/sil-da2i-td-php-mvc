@@ -2,6 +2,12 @@
 
 class MovieController extends Controller {
 
+    /**
+     * Displays the movie page with the movie information associated to the received movieId
+     *
+     * @param int $movieId
+     * @return void
+     */
     public static function display(int $movieId)
     {
         $movie = new Movie($movieId);

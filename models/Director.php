@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * The director entity
+ */
 class Director extends Person {
 
     protected $id;
@@ -11,6 +14,11 @@ class Director extends Person {
         $this->db = DB::getInstance();
     }
 
+    /**
+     * Allows to retrieve all the person related to a movie as Director
+     *
+     * @return void
+     */
     public static function getAllDirectors()
     {
         $db = DB::getInstance();

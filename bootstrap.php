@@ -7,6 +7,7 @@ require_once('src/autoloader.php');
 $request = parse_url(substr($_SERVER['REQUEST_URI'], strlen(_BASE_URL_)));
 $explodedRequest = explode('/', $request['path']);
 
+// Handle the request
 switch ($request['path']) {
     case 'index.php':
     case '':

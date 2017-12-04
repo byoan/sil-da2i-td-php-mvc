@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Database singleton
+ */
 class DB {
 
     private static $instance;
@@ -9,6 +12,11 @@ class DB {
 
     }
 
+    /**
+     * Allows to retrieve the only instance of PDO available in the app
+     *
+     * @return void
+     */
     public static function getInstance()
     {
         if (is_null(self::$instance)) {
@@ -21,6 +29,13 @@ class DB {
         return self::$instance;
     }
 
+    /**
+     * Retrieves the max id available for a given table
+     * Useful for calculating an id for an insert
+     *
+     * @param [type] $tableName
+     * @return void
+     */
     public static function getLatestId($tableName)
     {
         $db = self::getInstance();

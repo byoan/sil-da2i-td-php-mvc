@@ -2,16 +2,25 @@
 
 class AdminController extends Controller {
 
+    /**
+     * Displays the home administration page
+     *
+     * @return void
+     */
     public static function displayAdminHome()
     {
         $data['moviesList'] = Movie::getAllMovies();
         $data['personList'] = Person::getAllPersons();
-        // $data['actorsList'] = Actor::getAllActors();
-        // $data['directorsList'] = Director::getAllDirectors();
 
         return parent::loadAdminTemplate('home', $data);
     }
 
+    /**
+     * Handles the received admin action
+     *
+     * @param array $request The request query, as an exploded array
+     * @return void
+     */
     public function handleAdminAction(array $request)
     {
         switch ($request['1']) {
@@ -30,6 +39,12 @@ class AdminController extends Controller {
         }
     }
 
+    /**
+     * Allows to handle an add action in the query
+     *
+     * @param array $explodedRequest The request query, as an exploded array
+     * @return void
+     */
     public function handleAddAction(array $explodedRequest)
     {
         switch ($explodedRequest['2']) {
@@ -55,6 +70,12 @@ class AdminController extends Controller {
         }
     }
 
+    /**
+     * Allows to handle an edit action in the query
+     *
+     * @param array $explodedRequest The request query, as an exploded array
+     * @return void
+     */
     public function handleEditAction(array $explodedRequest)
     {
         switch ($explodedRequest['2']) {
@@ -82,6 +103,12 @@ class AdminController extends Controller {
         }
     }
 
+    /**
+     * Allows to handle a delete action in the query
+     *
+     * @param array $explodedRequest The request query, as an exploded array
+     * @return void
+     */
     public function handleDeleteAction(array $explodedRequest)
     {
         switch ($explodedRequest['2']) {
@@ -108,6 +135,11 @@ class AdminController extends Controller {
         }
     }
 
+    /**
+     * Creates a movie using the information received in $_POST
+     *
+     * @return void
+     */
     private function createMovie()
     {
         $db = Db::getInstance();
@@ -122,6 +154,11 @@ class AdminController extends Controller {
         return $movie->add();
     }
 
+    /**
+     * Creates a person using the information received in $_POST
+     *
+     * @return void
+     */
     private function createPerson()
     {
         $db = Db::getInstance();
@@ -137,6 +174,11 @@ class AdminController extends Controller {
         return $person->add();
     }
 
+    /**
+     * Deletes the movie associated to the idMovie passed through $_POST
+     *
+     * @return void
+     */
     private function deleteMovie()
     {
         $db = Db::getInstance();
@@ -146,6 +188,11 @@ class AdminController extends Controller {
         return $movie->delete();
     }
 
+    /**
+     * Deletes the person associated to the idPerson passed through $_POST
+     *
+     * @return void
+     */
     private function deletePerson()
     {
         $db = Db::getInstance();
@@ -155,6 +202,12 @@ class AdminController extends Controller {
         return $person->delete();
     }
 
+    /**
+     * Displays the movie deletion form
+     *
+     * @param int $idMovie The movie's id to associate to the form
+     * @return void
+     */
     private function displayDeleteMovieForm($idMovie)
     {
         $movie = new Movie((int)$idMovie);
@@ -162,6 +215,12 @@ class AdminController extends Controller {
         return parent::loadAdminTemplate('form/deleteMovie', $movie->getMovieInformation());
     }
 
+    /**
+     * Displays the person deletion form
+     *
+     * @param int $idPerson The person's id to associate to the form
+     * @return void
+     */
     private function displayDeletePersonForm($idPerson)
     {
         $person = new Person((int)$idPerson);
@@ -169,6 +228,12 @@ class AdminController extends Controller {
         return parent::loadAdminTemplate('form/deletePerson', $person->getInformation());
     }
 
+    /**
+     * Displays the movie edition form
+     *
+     * @param int $idMovie The id movie to edit
+     * @return void
+     */
     private function displayEditMovieForm($idMovie)
     {
         $movie = new Movie((int)$idMovie);
@@ -176,6 +241,12 @@ class AdminController extends Controller {
         return parent::loadAdminTemplate('form/editMovie', $movie->getMovieInformation());
     }
 
+    /**
+     * Displays the person edition form
+     *
+     * @param int $idPerson The id person to edit
+     * @return void
+     */
     private function displayEditPersonForm($idPerson)
     {
         $person = new Person((int)$idPerson);
@@ -183,6 +254,12 @@ class AdminController extends Controller {
         return parent::loadAdminTemplate('form/editPerson', $person->getBaseInformation());
     }
 
+    /**
+     * Updates the movie information for the given id movie, through $_POST
+     *
+     * @param int $idMovie The movie id to update
+     * @return void
+     */
     private function updateMovieInformation($idMovie)
     {
         $movie = new Movie((int)$idMovie);
@@ -194,6 +271,12 @@ class AdminController extends Controller {
         return $movie->save();
     }
 
+    /**
+     * Updates the person information for the given id person, through $_POST
+     *
+     * @param int $idPerson The person id to update
+     * @return void
+     */
     private function updatePersonInformation($idPerson)
     {
         $person = new Person((int)$idPerson);

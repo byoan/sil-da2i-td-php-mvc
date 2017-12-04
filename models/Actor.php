@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Actor Entity
+ */
 class Actor extends Person {
 
     protected $id;
@@ -11,6 +14,11 @@ class Actor extends Person {
         $this->db = DB::getInstance();
     }
 
+    /**
+     * Allows to retrieve all actors related to a movie as Actor
+     *
+     * @return void
+     */
     public static function getAllActors()
     {
         $db = DB::getInstance();
