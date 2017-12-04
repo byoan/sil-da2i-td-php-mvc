@@ -5,6 +5,12 @@ class Person {
     protected $id;
     protected $db;
 
+    public $firstName;
+    public $lastName;
+    public $birthDate;
+    public $biography;
+    public $filmography;
+
     public function __construct(int $id)
     {
         $this->id = $id;

@@ -4,6 +4,10 @@ class Movie {
 
     private $id;
     private $db;
+    public $title;
+    public $synopsis;
+    public $releaseDate;
+    public $rating;
 
     public function __construct(int $id)
     {
