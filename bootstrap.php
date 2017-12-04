@@ -4,7 +4,7 @@ require_once('src/config.php');
 require_once('src/autoloader.php');
 
 // Substr to remove /sitesDyn/
-$request = parse_url(substr($_SERVER['REQUEST_URI'], 10));
+$request = parse_url(substr($_SERVER['REQUEST_URI'], strlen(_BASE_URL_)));
 
 switch ($request['path']) {
     case 'index.php':
