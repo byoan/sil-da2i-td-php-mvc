@@ -3,9 +3,11 @@
         <main>
             <?php Controller::loadTemplate('header'); ?>
             <article>
-                <?php Controller::loadTemplate('moviesList', $data); ?>
-                <?php Controller::loadTemplate('actorsList', $data); ?>
-                <?php Controller::loadTemplate('directorsList', $data); ?>
+                <?php
+                    Controller::loadTemplate('moviesList', $data);
+                    Controller::loadTemplate('actorsList', $data);
+                    Controller::loadTemplate('directorsList', $data);
+                ?>
             </article>
             <hr />
             <?php Controller::loadTemplate('footer') ?>
