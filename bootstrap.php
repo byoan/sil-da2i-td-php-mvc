@@ -5,6 +5,7 @@ require_once('src/autoloader.php');
 
 // Substr to remove /sitesDyn/
 $request = parse_url(substr($_SERVER['REQUEST_URI'], strlen(_BASE_URL_)));
+$explodedRequest = explode('/', $request['path']);
 
 switch ($request['path']) {
     case 'index.php':
@@ -23,7 +24,13 @@ switch ($request['path']) {
         $actorId = (int)$_GET['id'];
         return ActorController::display($actorId);
 
+    case 'admin':
+    case 'admin/':
+        return AdminController::displayAdminHome();
+
+    case (preg_match('/\/admin\/[a-z]+\/[a-z]+\/*/', '/' . $request['path']) ? true : false):
+        return (new AdminController())->handleAdminAction($explodedRequest);
+
     default:
-        header("HTTP/1.0 404 Not Found");
-        die('404');
+        return header("HTTP/1.1 404 Not Found");
 }
