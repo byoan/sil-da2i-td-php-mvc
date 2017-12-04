@@ -193,11 +193,11 @@ class AdminController extends Controller {
      *
      * @return void
      */
-    private function deletePerson()
+    private function deletePerson($idPerson)
     {
         $db = Db::getInstance();
 
-        $person = new Person((int)$_POST['idPerson']);
+        $person = new Person((int)$idPerson);
 
         return $person->delete();
     }
