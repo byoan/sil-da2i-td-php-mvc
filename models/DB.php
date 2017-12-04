@@ -20,4 +20,13 @@ class DB {
         }
         return self::$instance;
     }
+
+    public static function getLatestId($tableName)
+    {
+        $db = self::getInstance();
+        $request = $db->query("SELECT MAX(id) FROM {$tableName}");
+
+        $request->execute();
+        return current($request->fetchAll(PDO::FETCH_ASSOC)[0]);
+    }
 }
