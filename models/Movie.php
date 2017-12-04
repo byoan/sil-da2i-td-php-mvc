@@ -67,4 +67,38 @@ class Movie {
         return $request->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function save()
+    {
+        $request = $this->db->prepare("UPDATE film SET titre = :titre, dateDeSortie = :releaseDate, synopsis = :synopsis, note = :rating WHERE id = :id");
+
+        return $request->execute([
+            ':id' => $this->id,
+            ':titre' => $this->title,
+            ':releaseDate' => $this->releaseDate,
+            ':synopsis' => $this->synopsis,
+            ':rating' => $this->rating,
+        ]);
+    }
+
+    public function add()
+    {
+        $request = $this->db->prepare("INSERT INTO film (id, titre, dateDeSortie, synopsis, note) VALUES (:id, :title, :releaseDate, :synopsis, :rating)");
+
+        return $request->execute([
+            ':id' => $this->id,
+            ':title' => $this->title,
+            ':releaseDate' => $this->releaseDate,
+            ':synopsis' => $this->synopsis,
+            ':rating' => $this->rating,
+        ]);
+    }
+
+    public function delete()
+    {
+        $request = $this->db->prepare("DELETE * FROM film WHERE id = :id");
+
+        return $request->execute([
+            ':id' => $this->id,
+        ]);
+    }
 }
