@@ -35,7 +35,7 @@ switch ($request['path']) {
 
     case 'asideAjax':
     case 'asideAjax/':
-        die("<h1>Coucou</h1>");
+        die(FaqController::displayFaqContentOnly());
         break;
 
     case (preg_match('/\/admin\/[a-z]+\/[a-z]+\/*/', '/' . $request['path']) ? true : false):
