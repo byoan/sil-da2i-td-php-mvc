@@ -15,7 +15,7 @@ class Controller {
         if (!empty($args)) {
             $data = $args;
         }
-
+        $data['ajaxUrl'] = '' . _BASE_URL_ . 'asideAjax';
         include dirname(dirname(__FILE__)) . '/views/' . $templateName . '.php';
     }
 
@@ -32,7 +32,7 @@ class Controller {
         if (!empty($args)) {
             $data = $args;
         }
-
+        $data['ajaxUrl'] = '' . _BASE_URL_ . 'asideAjax';
         include dirname(dirname(__FILE__)) . '/views/admin/' . $templateName . '.php';
     }
 }

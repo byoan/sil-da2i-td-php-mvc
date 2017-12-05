@@ -18,7 +18,7 @@
                 </section>
             </article>
             <hr />
-            <?php Controller::loadTemplate('footer') ?>
+            <?php Controller::loadTemplate('footer', $data) ?>
         </main>
     </body>
 </html>

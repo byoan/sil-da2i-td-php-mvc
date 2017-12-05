@@ -55,7 +55,7 @@ $(document).ready(function() {
     });
 
     $('#loadAside').on('click', function() {
-        $('#superAside').load('<?= $data['ajaxUrl'] ?>');
+        $('#superAside').load('<?= $data['ajaxUrl'] ?> #faq');
     });
 });
 </script>

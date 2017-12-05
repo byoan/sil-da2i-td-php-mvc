@@ -13,4 +13,4 @@
             </article>
         </main>
     </body>
-<?php Controller::loadTemplate('footer'); ?>
+<?php Controller::loadTemplate('footer', $data); ?>
