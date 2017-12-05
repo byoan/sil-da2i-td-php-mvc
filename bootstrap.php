@@ -35,6 +35,7 @@ switch ($request['path']) {
 
     case 'asideAjax':
     case 'asideAjax/':
+        sleep(1);
         die(FaqController::displayFaqContentOnly());
         break;
 

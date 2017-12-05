@@ -55,7 +55,17 @@ $(document).ready(function() {
     });
 
     $('#loadAside').on('click', function() {
-        $('#superAside').load('<?= $data['ajaxUrl'] ?> #faq');
+        $('#superAside').html('<div class="loader"></div>');
+        $.ajax({
+            method: 'GET',
+            url: '<?= $data['ajaxUrl'] ?>',
+            success: function(response) {
+                $('#superAside').html(response);
+            },
+            error: function(error) {
+                alert('An error occurred during the AJAX call : ' + error);
+            }
+        });
     });
 });
 </script>
