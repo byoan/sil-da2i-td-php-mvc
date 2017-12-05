@@ -33,6 +33,11 @@ switch ($request['path']) {
     case 'faq/':
         return FaqController::displayFaq();
 
+    case 'asideAjax':
+    case 'asideAjax/':
+        die("<h1>Coucou</h1>");
+        break;
+
     case (preg_match('/\/admin\/[a-z]+\/[a-z]+\/*/', '/' . $request['path']) ? true : false):
         return (new AdminController())->handleAdminAction($explodedRequest);
 

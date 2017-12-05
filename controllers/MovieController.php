@@ -16,6 +16,7 @@ class MovieController extends Controller {
         $data['imagesOfFilm'] = $movie->getMoviePhotos();
         $data['realisateur'] = $movie->getDirector();
         $data['imagesOfActorsInFilm'] = $movie->getActorImages();
+        $data['ajaxUrl'] = '' . _BASE_URL_ . 'asideAjax';
 
         return parent::loadTemplate('movieInformation', $data);
     }

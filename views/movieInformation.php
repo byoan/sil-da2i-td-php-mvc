@@ -32,6 +32,9 @@
                         ?>
                     </div>
                 </section>
+                <button id="loadAside">Charger</button>
+                <aside id="superAside">
+                </aside>
                 <aside>
                     <div>
                         <section>
@@ -52,7 +55,7 @@
 
             </article>
             <hr />
-            <?php Controller::loadTemplate('footer') ?>
+            <?php Controller::loadTemplate('footer', $data) ?>
         </main>
     </body>
 </html>

@@ -53,5 +53,9 @@ $(document).ready(function() {
             }
         });
     });
+
+    $('#loadAside').on('click', function() {
+        $('#superAside').load('<?= $data['ajaxUrl'] ?>');
+    });
 });
 </script>
