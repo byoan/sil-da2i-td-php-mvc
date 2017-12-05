@@ -6,17 +6,6 @@ Controller::loadTemplate('head'); ?>
             <article id="faq">
                 <h1>FAQ</h1>
                 <dl>
-                    <dt>question 1</dt>
-                    <dd>
-                        <dl>
-                            <dt>réponse 1 partie 1</dt>
-                            <dd>détail 1</dd>
-                            <dt>réponse 1 partie 2</dt>
-                            <dd>détail 2</dd>
-                        </dl>
-                    </dd>
-                </dl>
-                <dl>
                     <dt>Firefox</dt>
                     <dd>
                         Un navigateur Web libre, open-source, multi-plateforme

@@ -21,11 +21,17 @@ $(document).ready(function() {
     });
 
     $('dt').on('mouseenter mouseleave', function() {
-        $(this).next('dd').toggle();
+        if (!$(this).hasClass('display')) {
+            $(this).next('dd').toggle();
+        }
     });
 
-    $('dt').data('clicksCount', 0);
+    $('dt').each(function() {
+        $(this).data('clicksCount', 0);
+        $(this).text($(this).text() + ' (' + $(this).data('clicksCount') + ')');
+    });
 
+    var maxNbClicks = 0;
     $('dt').on('click', function() {
         if ($(this).hasClass('display')) {
             $(this).removeClass('display');
@@ -36,6 +42,16 @@ $(document).ready(function() {
         }
         $(this).data('clicksCount', parseInt($(this).data('clicksCount')) + 1);
         $(this).text('Firefox : ' + $(this).data('clicksCount'));
+
+        $('article dl dt').each(function() {
+            if (typeof($(this).data('clicksCount')) === 'undefined') {
+                $(this).data('clicksCount') = 0;
+            }
+            if ($(this).data('clicksCount') > maxNbClicks) {
+                $(this).prependTo($('dl'));
+                maxNbClicks = $(this).data('clicksCount');
+            }
+        });
     });
 });
 </script>
