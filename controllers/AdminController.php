@@ -49,14 +49,39 @@ class AdminController extends Controller {
     {
         switch ($explodedRequest['2']) {
             case 'movie':
-                if (!empty($_POST['title'])) {
-                    if ($this->createMovie()) {
-                        return header('Location: ../');
-                    } else {
-                        die('Error');
+                if (isset($_POST['submit'])) {
+                    $fields = array('title', 'synopsis', 'releaseDate', 'rating');
+                    $missingFields = array();
+                    $error = false;
+
+                    foreach ($fields as $field) {
+                        if (empty($_POST[$field])) {
+                            array_push($missingFields, $field);
+                            $error = true;
+                        }
                     }
+                    if (!$error) {
+                        if ($this->createMovie()) {
+                            $response = array(
+                                'error' => false,
+                                'redirectUrl' => _BASE_URL_ . 'admin/',
+                            );
+                        } else {
+                            $response = array(
+                                'error' => true,
+                                'errorMessage' => 'An error occured while trying to create the movie'
+                            );
+                        }
+                    } else {
+                        $response = array(
+                            'error' => true,
+                            'errorMessage' => 'Some fields were missing',
+                            'missingFields' => $missingFields,
+                        );
+                    }
+                    die(json_encode($response));
                 }
-                return parent::loadAdminTemplate('form/addMovie');
+                return parent::loadAdminTemplate('form/addMovie', array('postUrl' => _BASE_URL_ . 'admin/add/movie'));
 
             case 'person':
                 if (!empty($_POST['firstName'])) {
