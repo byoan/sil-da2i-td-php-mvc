@@ -1,6 +1,6 @@
 <?php
 
-class DirectorController {
+class DirectorController extends Controller {
 
     /**
      * Displays the director page information
@@ -11,6 +11,6 @@ class DirectorController {
 
         $data['personne'] = $director->getBaseInformation();
 
-        return Controller::loadTemplate('person', $data);
+        return parent::loadTemplate('person', $data);
     }
 }
