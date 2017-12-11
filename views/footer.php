@@ -67,5 +67,45 @@ $(document).ready(function() {
             }
         });
     });
+
+    // jQuery plugin
+    (function ($) {
+        $.fn.relFunction = function() {
+            let linksList = $('body a');
+            let noFollowLinks = 0;
+            let displayableList = [];
+
+            linksList.each(function(key, element) {
+                if ($(element).attr('rel') != 'nofollow') {
+                    noFollowLinks++;
+                    displayableList.push('<a href="#" id="link" data-id-link=' + key + '>' + $(element).text().substr(0, 10) + ' ...</div>');
+                }
+            });
+
+            $('body').append('<div id="dashboard"><strong>Links Dashboard</strong><p>Number of links retrieved : ' + linksList.length + '</p><p>Number of links that doesn\'t have the nofollow attribute : ' + (noFollowLinks / linksList.length * 100) + ' %</p><p>List of links :<div id="linksList"></div></p>');
+            $('#linksList').html(displayableList.join(""));
+
+            $('#linksList #link').on('click', function() {
+                // Reset all links to white color
+                $('#linksList #link').css('background-color', '#fff');
+                $('a').css('background-color', '#fff');
+
+                // Retrieve the link id
+                let id = $(this).attr('data-id-link');
+                let element = linksList[id];
+
+                // Define background color to red for both the link and the link in the list
+                $(this).css('background-color', '#EB5B61');
+                $(element).css('background-color', '#EB5B61');
+
+                // Scroll to link
+                $('html, body').animate({
+                    scrollTop: $(element).offset().top
+                }, 500);
+            });
+        };
+    } (jQuery));
+
+    $('body').relFunction();
 });
 </script>
