@@ -1,7 +1,7 @@
-<?php Controller::loadTemplate('head'); ?>
+<?php ((!$data['contentOnly']) ? Controller::loadTemplate('head') : '') ?>
     <body>
         <main>
-            <?php Controller::loadTemplate('header'); ?>
+            <?php ((!$data['contentOnly']) ? Controller::loadTemplate('header') : '') ?>
             <article>
                 <h1>Edit person</h1>
                 <form method="post">

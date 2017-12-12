@@ -15,6 +15,13 @@ class Controller {
         if (!empty($args)) {
             $data = $args;
         }
+        // $data['contentOnly'] = true;
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == "XMLHttpRequest") {
+            $data['contentOnly'] = true;
+        } else {
+            $data['contentOnly'] = false;
+        }
+
         $data['ajaxUrl'] = '' . _BASE_URL_ . 'asideAjax';
         include dirname(dirname(__FILE__)) . '/views/' . $templateName . '.php';
     }
@@ -32,6 +39,14 @@ class Controller {
         if (!empty($args)) {
             $data = $args;
         }
+        // $data['contentOnly'] = true;
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == "XMLHttpRequest") {
+            $data['contentOnly'] = true;
+        } else {
+            $data['contentOnly'] = false;
+        }
+
+
         $data['ajaxUrl'] = '' . _BASE_URL_ . 'asideAjax';
         include dirname(dirname(__FILE__)) . '/views/admin/' . $templateName . '.php';
     }

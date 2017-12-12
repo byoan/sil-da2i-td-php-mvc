@@ -1,8 +1,7 @@
-<?php
-Controller::loadTemplate('head'); ?>
+<?php ((!$data['contentOnly']) ? Controller::loadTemplate('head') : '') ?>
     <body>
         <main>
-            <?php Controller::loadTemplate('header'); ?>
+            <?php ((!$data['contentOnly']) ? Controller::loadTemplate('header') : '') ?>
             <article>
                 <?php
                     Controller::loadTemplate('moviesList', $data);
@@ -11,6 +10,6 @@ Controller::loadTemplate('head'); ?>
                 ?>
             </article>
             <hr />
-            <?php Controller::loadTemplate('footer', $data) ?>
+            <?php ((!$data['contentOnly']) ? Controller::loadTemplate('footer') : '') ?>
         </main>
     </body>

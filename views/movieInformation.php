@@ -1,7 +1,7 @@
-<?php Controller::loadTemplate('head'); ?>
+<?php ((!$data['contentOnly']) ? Controller::loadTemplate('head') : '') ?>
     <body>
         <main>
-            <?php Controller::loadTemplate('header'); ?>
+            <?php ((!$data['contentOnly']) ? Controller::loadTemplate('header') : '') ?>
             <article>
                 <h1 class="movieName"><?= $data['movie']['titre'] ?> (<time><?= date('Y', strtotime($data['movie']['dateDeSortie'])); ?></time>)</h1>
                 <h2 class="movieRating"><meter min="0" max="5" value="<?= $data['movie']['note'] ?>"><?= $data['movie']['note'] ?></meter></h2>
@@ -55,7 +55,7 @@
 
             </article>
             <hr />
-            <?php Controller::loadTemplate('footer', $data) ?>
+            <?php ((!$data['contentOnly']) ? Controller::loadTemplate('footer', $data) : '') ?>
         </main>
     </body>
 </html>

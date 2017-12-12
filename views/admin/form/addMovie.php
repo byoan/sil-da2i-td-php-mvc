@@ -1,8 +1,7 @@
-<?php
-    Controller::loadTemplate('head'); ?>
+<?php ((!$data['contentOnly']) ? Controller::loadTemplate('head') : '') ?>
     <body>
         <main>
-            <?php Controller::loadTemplate('header'); ?>
+            <?php ((!$data['contentOnly']) ? Controller::loadTemplate('header') : '') ?>
             <article>
                 <h1>Add a movie</h1>
                 <form method="post" id="newMovieForm">
@@ -58,4 +57,4 @@
             });
         </script>
     </body>
-<?php Controller::loadTemplate('footer', $data); ?>
+<?php ((!$data['contentOnly']) ? Controller::loadTemplate('footer', $data) : '') ?>

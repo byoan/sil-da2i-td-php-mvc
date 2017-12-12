@@ -1,7 +1,7 @@
-<?php Controller::loadTemplate('head'); ?>
+<?php ((!$data['contentOnly']) ? Controller::loadTemplate('head') : '') ?>
     <body>
         <main>
-            <?php Controller::loadTemplate('header'); ?>
+            <?php ((!$data['contentOnly']) ? Controller::loadTemplate('header') : '') ?>
             <article>
                 <?php Controller::loadTemplate('personQuickview', $data); ?>
                 <section>
@@ -18,7 +18,7 @@
                 </section>
             </article>
             <hr />
-            <?php Controller::loadTemplate('footer', $data) ?>
+            <?php ((!$data['contentOnly']) ? Controller::loadTemplate('footer', $data) : '') ?>
         </main>
     </body>
 </html>
