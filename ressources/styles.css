@@ -87,8 +87,11 @@ dd {
     border: 3px solid #f3f3f3;
     border-radius: 50%;
     border-top: 3px solid #3498db;
-    width: 1.5em;
-    height: 1.5em;
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    top: 5px;
+    left: 5px;
     -webkit-animation: spin 0.5s linear infinite;
     -moz-animation: spin 0.5s linear infinite;
     animation: spin 0.5s linear infinite;
