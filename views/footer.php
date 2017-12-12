@@ -4,6 +4,36 @@
 <script>
 $(document).ready(function() {
 
+    // Use document to make the event listener apply even after DOM change
+    $(document).on('click', 'a', function(element) {
+        element.preventDefault();
+        let link = element.target.href;
+
+        $('header').prepend('<div class="loader"></div>');
+
+        $.ajax({
+            url: link,
+        }).done(function(response) {
+            $('article').fadeOut(500, function() {
+                $('article').html($(response).find('article').html());
+                $('article').fadeIn();
+            });
+            history.pushState({link: link}, null, link);
+            setTimeout(function() {
+                $('div.loader').fadeOut();
+            }, 500);
+        }).fail(function() {
+            // In case an error occurred, use classic navigation
+            window.location = link;
+        });
+    })
+
+    $(window).bind('popstate', function(event) {
+        if (event.originalEvent.state.link !== 'undefined') {
+            window.location = event.originalEvent.state.link;
+        }
+    })
+
     $('#hideAside').on('click', function() {
         $('aside').hide(2000);
     });
