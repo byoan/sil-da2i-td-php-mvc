@@ -106,6 +106,6 @@ $(document).ready(function() {
         };
     } (jQuery));
 
-    $('body').relFunction();
+    //$('body').relFunction();
 });
 </script>
